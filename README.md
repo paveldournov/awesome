@@ -1,0 +1,2 @@
+# awesome
+Kids coding exercises
