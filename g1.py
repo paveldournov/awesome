@@ -1,3 +1,7 @@
+#
+# Draw Random Circles with colors
+#
+
 from graphics import *
 import random
 import time
