@@ -1,10 +1,11 @@
 from graphics import *
 
-win = GraphWin("Alyssa Drawing Game", 500, 500)
+win_size = 920
+win = GraphWin("Alyssa Drawing Game", win_size, win_size)
 win.setBackground('white')
 
 start_point = 10
-sq_size = 100
+sq_size = 300
 
 p1 = Point(start_point, start_point)
 p2 = Point(start_point + sq_size * 3, start_point + sq_size * 3)
@@ -36,6 +37,35 @@ l4.setWidth(5)
 #cir = Circle(pt, 30)
 #cir.draw(win)
 
+while True:
+    click_point = win.getMouse()
+    
+    sq_x = 2
+    sq_y = 2
+    if click_point.x > (start_point + sq_size*2):
+        sq_x = 3
+    elif click_point.x < (start_point + sq_size):
+        sq_x = 1
+
+    if click_point.y > (start_point + sq_size*2):
+        sq_y = 3
+    elif click_point.y < (start_point + sq_size):
+        sq_y = 1
+
+    print("Square column = {}, row = {}".format(sq_x, sq_y))
+
+    rx = Point(start_point + (sq_x - 1)*sq_size, start_point + (sq_y - 1) * sq_size)
+    ry = Point(start_point + (sq_x)*sq_size, start_point + (sq_y) * sq_size)
+    sq = Rectangle(rx, ry)
+    sq.setFill("green")
+    sq.draw(win)
+
+    new_circle = Circle(click_point, 50)
+    new_circle.setWidth(5)
+    new_circle.draw(win)
+
+
 win.getMouse()
+
 win.close()
 
